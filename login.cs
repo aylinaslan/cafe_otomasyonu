@@ -49,3 +49,30 @@ namespace PB_Cafe
                 komut.Parameters.AddWithValue("@sifre", tb_kullaniciSifre.Text);
                 baglanti.Open();
                 dr = komut.ExecuteReader();
+                if (dr.Read())
+                {
+                    MessageBox.Show("Hoşgeldiniz " + tb_kullaniciAd.Text + ":)");
+                    Home frm = new Home();
+                    frm.Show();
+                    this.Hide();
+                }
+                else
+                {
+                    MessageBox.Show("Kullanıcı adı veya şifre hatalı :(");
+                    temizle(this);
+                }
+                baglanti.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                throw;
+            }
+        }
+
+        private void btn_cikis_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+    }
+}
