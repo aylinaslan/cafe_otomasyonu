@@ -107,10 +107,5 @@ namespace PB_Cafe
             }
         }
 
-        private void btnSiparisler_Click(object sender, EventArgs e)
-        {
-            FormSiparisKontrol frm = new FormSiparisKontrol();
-            this.Close();
-            frm.Show();
-        }
+     
     }
